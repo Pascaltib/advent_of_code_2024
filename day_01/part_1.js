@@ -1,6 +1,6 @@
-import parseFile from "../parseFile.js";
+import { parseFileColumns } from "../parseFile.js";
 
-const { col1, col2 } = parseFile();
+const { col1, col2 } = parseFileColumns();
 
 // const col1 = [3, 4, 2, 1, 3, 3];
 

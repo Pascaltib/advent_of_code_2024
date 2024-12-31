@@ -1,6 +1,6 @@
 import fs from "fs";
 
-function parseFile() {
+export function parseFileColumns() {
   // Read the whole file as a string
   const fileContents = fs.readFileSync("./adventData.txt", "utf-8");
 
@@ -24,4 +24,24 @@ function parseFile() {
   return { col1, col2 };
 }
 
-export default parseFile;
+export function parseFileRows() {
+  // Read the whole file as a string
+  const fileContents = fs.readFileSync("./adventData.txt", "utf-8");
+
+  // Split into lines
+  const lines = fileContents.trim().split("\n");
+
+  // Prepare arrays for rows
+  const rows = [];
+
+  // For each line, split by whitespace and store the pieces
+  for (const line of lines) {
+    // Use a regular expression to split on any amount of whitespace
+    const row = line.trim().split(/\s+/).map(Number);
+
+    // Store the row
+    rows.push(row);
+  }
+
+  return rows;
+}
