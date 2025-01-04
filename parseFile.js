@@ -37,7 +37,8 @@ export function parseFileRows() {
   // For each line, split by whitespace and store the pieces
   for (const line of lines) {
     // Use a regular expression to split on any amount of whitespace
-    const row = line.trim().split(/\s+/).map(Number);
+    // const row = line.trim().split(/\s+/).map(Number);
+    const row = line.trim().split("");
 
     // Store the row
     rows.push(row);
