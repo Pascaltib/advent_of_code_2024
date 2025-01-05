@@ -55,11 +55,10 @@ for (let i = 0; i < grid.length; i++) {
     if (grid[i][j] === ".") {
       grid[i][j] = "#";
       try {
-        // Attempt to solve with a 30ms limit
         const result = await runTryToSolve(grid, position, 500);
         console.log(`Cell [${i}, ${j}] solved:`, result);
       } catch (err) {
-        // If it times out (or errors), increment infiniteLoopCount or revert the cell, etc.
+        // If it times out (or errors), increment infiniteLoopCount
         infiniteLoopCount++;
         console.warn(`Cell [${i}, ${j}] timed out or failed:`, err.message);
       }

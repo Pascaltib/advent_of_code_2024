@@ -19,9 +19,11 @@ function generateCombinations(n, current = []) {
     return;
   }
 
-  generateCombinations(n, [...current, true]);
+  generateCombinations(n, [...current, 0]);
 
-  generateCombinations(n, [...current, false]);
+  generateCombinations(n, [...current, 1]);
+
+  generateCombinations(n, [...current, 2]);
 }
 
 let finalSum = 0;
@@ -31,14 +33,18 @@ for (const line of data) {
   combinations = [];
   generateCombinations(values.length - 1);
 
+  // console.log(combinations);
+
   for (const combos of combinations) {
     let sum = values[0];
 
     for (let i = 0; i < values.length - 1; i++) {
-      if (combos[i]) {
+      if (combos[i] === 0) {
         sum = sum + values[i + 1];
-      } else {
+      } else if (combos[i] === 1) {
         sum = sum * values[i + 1];
+      } else {
+        sum = Number(String(sum) + String(values[i + 1]));
       }
     }
 
